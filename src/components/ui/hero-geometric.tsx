@@ -190,9 +190,12 @@ function HeroGeometric({
                             {description}
                         </p>
                         
-                        <button className="px-8 py-3 bg-gradient-to-r from-indigo-500 to-rose-500 text-white rounded-full font-medium hover:opacity-90 transition-opacity">
+                        <StarBorder 
+                            className="text-white hover:opacity-90 transition-opacity"
+                            color="white"
+                        >
                             Get Started
-                        </button>
+                        </StarBorder>
                     </motion.div>
                 </div>
             </div>
