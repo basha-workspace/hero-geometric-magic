@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { RainbowButton } from "./rainbow-button";
+import { TextEffect } from "./text-effect";
 
 function ElegantShape({
     className,
@@ -185,9 +186,14 @@ function HeroGeometric({
                         animate="visible"
                         className="space-y-8"
                     >
-                        <p className="text-base sm:text-lg md:text-xl text-white/40 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
+                        <TextEffect 
+                            per="word"
+                            preset="fade"
+                            delay={1.2}
+                            className="text-base sm:text-lg md:text-xl text-white/40 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4"
+                        >
                             {description}
-                        </p>
+                        </TextEffect>
                         
                         <RainbowButton 
                             className="text-white hover:opacity-90 transition-opacity"
