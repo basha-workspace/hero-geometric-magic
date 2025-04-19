@@ -5,7 +5,6 @@ import { Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { RainbowButton } from "./rainbow-button";
 import { TextEffect } from "./text-effect";
-import { MorphingText } from "./morphing-text";
 
 function ElegantShape({
     className,
@@ -74,9 +73,9 @@ function ElegantShape({
 }
 
 function HeroGeometric({
-    badge = "AutomateA2Z",
-    title1 = "Transforming Ideas Into",
-    title2 = "Solutions",
+    badge = "AI Automation",
+    title1 = "AI Automation That Works",
+    title2 = "Around the Clock",
     description = "Custom AI workflows, chatbots & voice bots that eliminate busywork—so you can focus on growth.",
 }: {
     badge?: string;
@@ -96,14 +95,6 @@ function HeroGeometric({
             },
         }),
     };
-
-    const intelligentWords = [
-        "Intelligent",
-        "Powerful",
-        "Advanced",
-        "Dynamic",
-        "Seamless"
-    ];
 
     return (
         <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
@@ -179,12 +170,8 @@ function HeroGeometric({
                     >
                         <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
                             <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
-                                {title1}{" "}
+                                {title1}
                             </span>
-                            <MorphingText 
-                                texts={intelligentWords}
-                                className="text-4xl sm:text-6xl md:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300 inline-block"
-                            />
                             <br />
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">
                                 {title2}
