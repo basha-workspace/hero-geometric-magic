@@ -5,6 +5,7 @@ import { Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { RainbowButton } from "./rainbow-button";
 import { TextEffect } from "./text-effect";
+import { TextShimmer } from "./text-shimmer";
 
 function ElegantShape({
     className,
@@ -169,13 +170,19 @@ function HeroGeometric({
                         animate="visible"
                     >
                         <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
-                            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
+                            <TextShimmer 
+                                className="block [--base-color:theme(colors.white)] [--base-gradient-color:theme(colors.white/80)]"
+                                duration={3}
+                            >
                                 {title1}
-                            </span>
+                            </TextShimmer>
                             <br />
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">
+                            <TextShimmer 
+                                className="block bg-gradient-to-r [--base-color:theme(colors.indigo.300)] [--base-gradient-color:theme(colors.rose.300)]"
+                                duration={3}
+                            >
                                 {title2}
-                            </span>
+                            </TextShimmer>
                         </h1>
                     </motion.div>
 
