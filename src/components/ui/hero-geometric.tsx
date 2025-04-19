@@ -1,10 +1,9 @@
 "use client";
 
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { motion } from "framer-motion";
 import { Circle } from "lucide-react";
-import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { StarBorder } from "./star-border";
+import { RainbowButton } from "./rainbow-button";
 
 function ElegantShape({
     className,
@@ -190,12 +189,18 @@ function HeroGeometric({
                             {description}
                         </p>
                         
-                        <StarBorder 
+                        <RainbowButton 
                             className="text-white hover:opacity-90 transition-opacity"
-                            color="white"
+                            style={{
+                                "--color-1": "0 0% 100%",
+                                "--color-2": "217 91% 60%",
+                                "--color-3": "271 91% 65%",
+                                "--color-4": "244 63% 50%",
+                                "--color-5": "199 89% 48%"
+                            } as React.CSSProperties}
                         >
                             Get Started
-                        </StarBorder>
+                        </RainbowButton>
                     </motion.div>
                 </div>
             </div>
