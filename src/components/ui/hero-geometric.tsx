@@ -5,7 +5,6 @@ import { Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { RainbowButton } from "./rainbow-button";
 import { TextEffect } from "./text-effect";
-import { TypeWriter } from "./typewriter";
 
 function ElegantShape({
     className,
@@ -74,7 +73,7 @@ function ElegantShape({
 }
 
 function HeroGeometric({
-    badge = "AutomateA2Z",
+    badge = "AI Automation",
     title1 = "AI Automation That Works",
     title2 = "Around the Clock",
     description = "Custom AI workflows, chatbots & voice bots that eliminate busywork—so you can focus on growth.",
@@ -170,10 +169,9 @@ function HeroGeometric({
                         animate="visible"
                     >
                         <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
-                            <TypeWriter 
-                                text={title1}
-                                className="block bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80"
-                            />
+                            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
+                                {title1}
+                            </span>
                             <br />
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">
                                 {title2}
