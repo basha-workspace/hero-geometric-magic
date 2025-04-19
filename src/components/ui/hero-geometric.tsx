@@ -5,6 +5,7 @@ import { Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { RainbowButton } from "./rainbow-button";
 import { TextEffect } from "./text-effect";
+import { FlipWords } from "./flip-words";
 
 function ElegantShape({
     className,
@@ -73,9 +74,9 @@ function ElegantShape({
 }
 
 function HeroGeometric({
-    badge = "AI Automation",
-    title1 = "AI Automation That Works",
-    title2 = "Around the Clock",
+    badge = "AutomateA2Z",
+    title1 = "AI Automation That",
+    title2 = "Works For You",
     description = "Custom AI workflows, chatbots & voice bots that eliminate busywork—so you can focus on growth.",
 }: {
     badge?: string;
@@ -95,6 +96,8 @@ function HeroGeometric({
             },
         }),
     };
+
+    const words = ["Scales", "Grows", "Learns", "Adapts"];
 
     return (
         <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
@@ -170,11 +173,11 @@ function HeroGeometric({
                     >
                         <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
                             <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
-                                {title1}
-                            </span>
-                            <br />
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">
-                                {title2}
+                                {title1}{" "}
+                                <FlipWords
+                                    words={words}
+                                    className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300"
+                                />
                             </span>
                         </h1>
                     </motion.div>
@@ -196,7 +199,7 @@ function HeroGeometric({
                         </TextEffect>
                         
                         <RainbowButton 
-                            className="text-white hover:opacity-90 transition-opacity"
+                            className="text-white hover:opacity-90 transition-opacity text-lg px-12 py-6 h-16"
                             style={{
                                 "--color-1": "0 0% 100%",
                                 "--color-2": "217 91% 60%",
