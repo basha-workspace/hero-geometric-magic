@@ -169,14 +169,13 @@ function HeroGeometric({
                         initial="hidden"
                         animate="visible"
                     >
-                        <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
+                        <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-0 md:mb-0 tracking-tight leading-[1.1]">
                             <TextShimmer 
                                 className="block [--base-color:theme(colors.white)] [--base-gradient-color:theme(colors.white/80)]"
                                 duration={3}
                             >
                                 {title1}
                             </TextShimmer>
-                            <br />
                             <TextShimmer 
                                 className="block bg-gradient-to-r [--base-color:theme(colors.indigo.300)] [--base-gradient-color:theme(colors.rose.300)]"
                                 duration={3}
