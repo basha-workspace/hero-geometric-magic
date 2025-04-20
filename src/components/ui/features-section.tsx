@@ -1,9 +1,8 @@
-
 import { cn } from "@/lib/utils";
 import { 
   HelpCircle, 
   Terminal, 
-  Movement, 
+  Move, 
   DollarSign, 
   Cloud, 
   Route, 
@@ -21,7 +20,7 @@ export function FeaturesSectionWithHoverEffects() {
     {
       title: "Ease of use",
       description: "It's as easy as using an Apple, and as expensive as buying one.",
-      icon: <Movement className="h-6 w-6" />,
+      icon: <Move className="h-6 w-6" />,
     },
     {
       title: "Pricing like no other",
