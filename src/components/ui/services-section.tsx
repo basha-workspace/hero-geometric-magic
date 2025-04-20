@@ -1,6 +1,5 @@
 
 import { cn } from "@/lib/utils";
-import { GradientText } from "./gradient-text";
 import {
   BookOpenCheck,
   Bot,
@@ -59,18 +58,8 @@ export function ServicesSection() {
   return (
     <div className="w-full bg-black py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          <GradientText 
-            className="text-white"
-            style={{
-              "--color-1": "217 91% 60%",
-              "--color-2": "271 91% 65%",
-              "--color-3": "244 63% 50%",
-              "--color-4": "199 89% 48%"
-            } as React.CSSProperties}
-          >
-            Our AI Automation Services
-          </GradientText>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
+          Our AI Automation Services
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 max-w-7xl mx-auto">
           {services.map((service, index) => (
