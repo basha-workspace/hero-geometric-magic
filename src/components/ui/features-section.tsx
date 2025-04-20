@@ -1,23 +1,32 @@
 
 import { cn } from "@/lib/utils";
-import { Help, Terminal2, EaseInOut, CurrencyDollar, Cloud, RouteAltLeft, AdjustmentsBolt, Heart } from "lucide-react";
+import { 
+  HelpCircle, 
+  Terminal, 
+  Movement, 
+  DollarSign, 
+  Cloud, 
+  Route, 
+  Settings, 
+  Heart 
+} from "lucide-react";
 
 export function FeaturesSectionWithHoverEffects() {
   const features = [
     {
       title: "Built for developers",
       description: "Built for engineers, developers, dreamers, thinkers and doers.",
-      icon: <Terminal2 className="h-6 w-6" />,
+      icon: <Terminal className="h-6 w-6" />,
     },
     {
       title: "Ease of use",
       description: "It's as easy as using an Apple, and as expensive as buying one.",
-      icon: <EaseInOut className="h-6 w-6" />,
+      icon: <Movement className="h-6 w-6" />,
     },
     {
       title: "Pricing like no other",
       description: "Our prices are best in the market. No cap, no lock, no credit card required.",
-      icon: <CurrencyDollar className="h-6 w-6" />,
+      icon: <DollarSign className="h-6 w-6" />,
     },
     {
       title: "100% Uptime guarantee",
@@ -27,17 +36,17 @@ export function FeaturesSectionWithHoverEffects() {
     {
       title: "Multi-tenant Architecture",
       description: "You can simply share passwords instead of buying new seats",
-      icon: <RouteAltLeft className="h-6 w-6" />,
+      icon: <Route className="h-6 w-6" />,
     },
     {
       title: "24/7 Customer Support",
       description: "We are available a 100% of the time. Atleast our AI Agents are.",
-      icon: <Help className="h-6 w-6" />,
+      icon: <HelpCircle className="h-6 w-6" />,
     },
     {
       title: "Money back guarantee",
       description: "If you donot like EveryAI, we will convince you to like us.",
-      icon: <AdjustmentsBolt className="h-6 w-6" />,
+      icon: <Settings className="h-6 w-6" />,
     },
     {
       title: "And everything else",
