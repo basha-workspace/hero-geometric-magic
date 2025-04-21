@@ -47,7 +47,7 @@ const reasons = [
 
 export function WhyChooseUsSection() {
   return (
-    <section className="w-full bg-[#1A1F2C] py-20">
+    <section className="w-full bg-black bg-opacity-[0.9] py-20">
       <div className="mx-auto max-w-7xl px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-tr from-[#d877ff] via-[#44d6ff] to-[#ffffff] bg-clip-text text-transparent animate-[rainbow_8s_linear_infinite]">
           Why Choose Us
@@ -58,7 +58,7 @@ export function WhyChooseUsSection() {
               key={reason.title}
               className="relative min-h-[14rem] list-none"
             >
-              <div className="relative h-full rounded-2xl border border-white/10 bg-[#222] p-2">
+              <div className="relative h-full rounded-2xl border border-white/20 bg-[#111111] p-2">
                 <GlowingEffect
                   spread={36}
                   glow={true}
@@ -67,9 +67,9 @@ export function WhyChooseUsSection() {
                   inactiveZone={0.03}
                   borderWidth={2}
                 />
-                <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border border-white/10 bg-[#222] p-7 shadow-lg">
+                <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border border-white/20 bg-[#111] p-7 shadow-lg">
                   <div className="relative flex flex-1 flex-col justify-between gap-4">
-                    <div className="w-fit rounded-lg border border-white/10 bg-white/5 p-3 flex items-center justify-center">
+                    <div className="w-fit rounded-lg border border-white/20 bg-white/5 p-3 flex items-center justify-center">
                       {reason.icon}
                     </div>
                     <div>
