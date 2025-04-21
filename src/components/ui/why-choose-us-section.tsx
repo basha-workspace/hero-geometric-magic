@@ -9,40 +9,46 @@ import {
   Box,
   Search,
   Lock,
-  Settings
+  Settings,
 } from "lucide-react";
 
 const reasons = [
   {
-    icon: <Sparkles className="h-5 w-5" />,
+    icon: <Sparkles className="h-5 w-5" color="#FFFFFF" />,
     title: "🤖 AI-First Approach",
-    description: "We specialize in AI-powered agents, bots, and workflows that actually think — not just follow scripts."
+    description:
+      "We specialize in AI-powered agents, bots, and workflows that actually think — not just follow scripts.",
   },
   {
-    icon: <Search className="h-5 w-5" />,
+    icon: <Search className="h-5 w-5" color="#FFFFFF" />,
     title: "⚡ Speed Meets Precision",
-    description: "Launch automations in days with pixel-perfect execution and zero guesswork."
+    description:
+      "Launch automations in days with pixel-perfect execution and zero guesswork.",
   },
   {
-    icon: <Box className="h-5 w-5" />,
+    icon: <Box className="h-5 w-5" color="#FFFFFF" />,
     title: "🧩 Tailored Integrations",
-    description: "From CRMs to calendars, we seamlessly connect your favorite tools to one smart system."
+    description:
+      "From CRMs to calendars, we seamlessly connect your favorite tools to one smart system.",
   },
   {
-    icon: <Settings className="h-5 w-5" />,
+    icon: <Settings className="h-5 w-5" color="#FFFFFF" />,
     title: "📈 Built to Scale",
-    description: "Our automations evolve with your growth — whether you're a startup or scaling fast."
+    description:
+      "Our automations evolve with your growth — whether you're a startup or scaling fast.",
   },
   {
-    icon: <Lock className="h-5 w-5" />,
+    icon: <Lock className="h-5 w-5" color="#FFFFFF" />,
     title: "🎯 Results, Not Just Tech",
-    description: "We focus on outcomes — more leads, better workflows, and smarter support — not just code."
+    description:
+      "We focus on outcomes — more leads, better workflows, and smarter support — not just code.",
   },
   {
-    icon: <Hammer className="h-5 w-5" />,
+    icon: <Hammer className="h-5 w-5" color="#FFFFFF" />,
     title: "🛠️ End-to-End Support",
-    description: "From strategy to setup to scale — we don't just build automations, we stand by you every step of the journey."
-  }
+    description:
+      "From strategy to setup to scale — we don't just build automations, we stand by you every step of the journey.",
+  },
 ];
 
 export function WhyChooseUsSection() {
@@ -53,11 +59,8 @@ export function WhyChooseUsSection() {
           Why Choose Us
         </h2>
         <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-          {reasons.map((reason, i) => (
-            <li
-              key={reason.title}
-              className="relative min-h-[14rem] list-none"
-            >
+          {reasons.map((reason) => (
+            <li key={reason.title} className="relative min-h-[14rem] list-none">
               <div className="relative h-full rounded-2xl border border-white/30 bg-black p-2">
                 <GlowingEffect
                   spread={36}
@@ -92,4 +95,3 @@ export function WhyChooseUsSection() {
 }
 
 export default WhyChooseUsSection;
-
