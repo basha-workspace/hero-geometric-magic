@@ -1,3 +1,4 @@
+
 import { cn } from "@/lib/utils";
 import {
   BookOpenCheck,
@@ -56,16 +57,30 @@ export function ServicesSection() {
   ];
 
   return (
-    <div className="w-full bg-black py-20">
-      <div className="container mx-auto px-4">
+    <div className="w-full bg-[#09090F] py-20 relative overflow-hidden">
+      {/* Dark, dramatic backdrop */}
+      <div className="absolute inset-0" style={{
+        background: "linear-gradient(120deg, #191926 0%, #121218 100%)"
+      }} />
+      {/* Optional texture overlay / image (uses provided screenshot as subtle overlay at 20% opacity) */}
+      <img 
+        src="/lovable-uploads/ff3f8f7c-d0d0-44a2-90d5-a5d9137396da.png" 
+        alt="" 
+        className="absolute inset-0 w-full h-full object-cover object-center opacity-20 pointer-events-none mix-blend-lighten"
+        aria-hidden="true"
+      />
+      <div className="relative container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           <GradientText
             className="text-white"
             style={{
-              "--color-1": "217 91% 60%",
-              "--color-2": "271 91% 65%",
-              "--color-3": "244 63% 50%",
-              "--color-4": "199 89% 48%"
+              // bright visible animated hues, matching a dark bg
+              "--color-1": "271 91% 65%",
+              "--color-2": "199 89% 58%",
+              "--color-3": "321 78% 68%",
+              "--color-4": "44 100% 63%",
+              color: "#fff", // ensure readable fallback
+              fontWeight: 800,
             } as React.CSSProperties}
           >
             Our AI Automation Services

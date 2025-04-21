@@ -4,16 +4,19 @@ import React from "react";
 import { motion, MotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-interface GradientTextProps extends Omit<React.HTMLAttributes<HTMLElement>, keyof MotionProps> {
+interface GradientTextProps
+  extends Omit<React.HTMLAttributes<HTMLElement>, keyof MotionProps> {
   className?: string;
   children: React.ReactNode;
   as?: React.ElementType;
+  style?: React.CSSProperties; // Allow style prop
 }
 
 function GradientText({
   className,
   children,
   as: Component = "span",
+  style,
   ...props
 }: GradientTextProps) {
   const MotionComponent = motion(Component);
@@ -21,9 +24,10 @@ function GradientText({
   return (
     <MotionComponent
       className={cn(
-        "relative inline-flex overflow-hidden bg-white dark:bg-black",
+        "relative inline-flex overflow-hidden bg-transparent",
         className
       )}
+      style={style}
       {...props}
     >
       {children}
