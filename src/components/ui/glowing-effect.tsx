@@ -1,4 +1,3 @@
-
 "use client";
 
 import { memo, useCallback, useEffect, useRef } from "react";
@@ -15,11 +14,12 @@ interface GlowingEffectProps {
   disabled?: boolean;
   movementDuration?: number;
   borderWidth?: number;
+  hoverGlow?: boolean;
 }
 
 const GlowingEffect = memo(
   ({
-    blur = 0,
+    blur = 16,
     inactiveZone = 0.7,
     proximity = 0,
     spread = 20,
@@ -29,12 +29,12 @@ const GlowingEffect = memo(
     movementDuration = 2,
     borderWidth = 1,
     disabled = true,
-  }: GlowingEffectProps) => {
+    hoverGlow = false,
+  }: GlowingEffectProps & { hoverGlow?: boolean }) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const lastPosition = useRef({ x: 0, y: 0 });
     const animationFrameRef = useRef<number>(0);
 
-    // Simple animation function to replace motion/react's animate
     const simpleAnimate = (
       from: number, 
       to: number, 
@@ -49,7 +49,6 @@ const GlowingEffect = memo(
         const elapsedTime = Date.now() - startTime;
         const progress = Math.min(elapsedTime / (options.duration * 1000), 1);
         
-        // Simple easing function implementation
         const t = progress;
         const easedProgress = t < 0.5
           ? 4 * t * t * t
@@ -150,6 +149,32 @@ const GlowingEffect = memo(
       };
     }, [handleMove, disabled]);
 
+    useEffect(() => {
+      if (!hoverGlow || !containerRef.current) return;
+
+      const el = containerRef.current;
+      const parent = el.parentElement;
+      if (!parent) return;
+
+      const handleMouseEnter = () => {
+        el.style.setProperty("--active", "1");
+        el.style.setProperty("--start", "0");
+        el.style.setProperty("--spread", "180");
+      };
+      const handleMouseLeave = () => {
+        el.style.setProperty("--active", "0");
+        el.style.setProperty("--spread", spread.toString());
+      };
+
+      parent.addEventListener("mouseenter", handleMouseEnter);
+      parent.addEventListener("mouseleave", handleMouseLeave);
+
+      return () => {
+        parent.removeEventListener("mouseenter", handleMouseEnter);
+        parent.removeEventListener("mouseleave", handleMouseLeave);
+      };
+    }, [hoverGlow, spread]);
+
     return (
       <>
         <div
@@ -169,7 +194,7 @@ const GlowingEffect = memo(
               "--start": "0",
               "--active": "0",
               "--glowingeffect-border-width": `${borderWidth}px`,
-              "--repeating-conic-gradient-times": "5",
+              "--repeating-conic-gradient-times": "10",
               "--gradient":
                 variant === "white"
                   ? `repeating-conic-gradient(
@@ -177,24 +202,27 @@ const GlowingEffect = memo(
                   var(--black),
                   var(--black) calc(25% / var(--repeating-conic-gradient-times))
                 )`
-                  : `radial-gradient(circle, #dd7bbb 10%, #dd7bbb00 20%),
-                radial-gradient(circle at 40% 40%, #d79f1e 5%, #d79f1e00 15%),
-                radial-gradient(circle at 60% 60%, #5a922c 10%, #5a922c00 20%), 
-                radial-gradient(circle at 40% 60%, #4c7894 10%, #4c789400 20%),
+                  : `
+                radial-gradient(circle, #db47ff88 15%, #dd7bbb00 60%),
+                radial-gradient(circle at 40% 40%, #44d6ff55 5%, #44d6ff00 16%),
+                radial-gradient(circle at 60% 60%, #d79f1e33 5%, #d79f1e00 14%), 
+                radial-gradient(circle at 40% 60%, #5a922c44 8%, #4c789400 17%),
                 repeating-conic-gradient(
-                  from 236.84deg at 50% 50%,
-                  #dd7bbb 0%,
-                  #d79f1e calc(25% / var(--repeating-conic-gradient-times)),
-                  #5a922c calc(50% / var(--repeating-conic-gradient-times)), 
-                  #4c7894 calc(75% / var(--repeating-conic-gradient-times)),
-                  #dd7bbb calc(100% / var(--repeating-conic-gradient-times))
-                )`,
+                  from calc(var(--start,0deg)) at 50% 50%,
+                  #d877ff 0%,
+                  #44d6ff calc(30% / var(--repeating-conic-gradient-times)),
+                  #d79f1e calc(60% / var(--repeating-conic-gradient-times)),
+                  #5a922c calc(90% / var(--repeating-conic-gradient-times)),
+                  #d877ff calc(100% / var(--repeating-conic-gradient-times))
+                )
+                `,
             } as React.CSSProperties
           }
           className={cn(
-            "pointer-events-none absolute inset-0 rounded-[inherit] opacity-100 transition-opacity",
+            "pointer-events-none absolute inset-0 rounded-[inherit] transition-all duration-300",
             glow && "opacity-100",
-            blur > 0 && "blur-[var(--blur)] ",
+            blur > 0 && "blur-[var(--blur)]",
+            "z-10",
             className,
             disabled && "!hidden"
           )}
@@ -206,11 +234,21 @@ const GlowingEffect = memo(
               'after:content-[""] after:rounded-[inherit] after:absolute after:inset-[calc(-1*var(--glowingeffect-border-width))]',
               "after:[border:var(--glowingeffect-border-width)_solid_transparent]",
               "after:[background:var(--gradient)] after:[background-attachment:fixed]",
-              "after:opacity-[var(--active)] after:transition-opacity after:duration-300",
+              "after:opacity-[var(--active)] after:transition-opacity after:duration-200",
               "after:[mask-clip:padding-box,border-box]",
               "after:[mask-composite:intersect]",
-              "after:[mask-image:linear-gradient(#0000,#0000),conic-gradient(from_calc((var(--start)-var(--spread))*1deg),#00000000_0deg,#fff,#00000000_calc(var(--spread)*2deg))]"
+              "after:[mask-image:linear-gradient(#000,#000)]"
             )}
+            style={
+              hoverGlow
+                ? {
+                    maskImage:
+                      "linear-gradient(#000,#000)",
+                    WebkitMaskImage:
+                      "linear-gradient(#000,#000)",
+                  }
+                : undefined
+            }
           />
         </div>
       </>
