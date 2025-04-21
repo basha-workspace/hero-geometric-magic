@@ -15,33 +15,33 @@ import {
 const reasons = [
   {
     icon: <Sparkles className="h-5 w-5" />,
-    title: "AI-First Approach",
+    title: "🤖 AI-First Approach",
     description: "We specialize in AI-powered agents, bots, and workflows that actually think — not just follow scripts."
   },
   {
     icon: <Search className="h-5 w-5" />,
-    title: "Speed Meets Precision",
+    title: "⚡ Speed Meets Precision",
     description: "Launch automations in days with pixel-perfect execution and zero guesswork."
   },
   {
     icon: <Box className="h-5 w-5" />,
-    title: "Tailored Integrations",
+    title: "🧩 Tailored Integrations",
     description: "From CRMs to calendars, we seamlessly connect your favorite tools to one smart system."
   },
   {
     icon: <Settings className="h-5 w-5" />,
-    title: "Built to Scale",
-    description: "Our automations evolve with your growth — whether you’re a startup or scaling fast."
+    title: "📈 Built to Scale",
+    description: "Our automations evolve with your growth — whether you're a startup or scaling fast."
   },
   {
     icon: <Lock className="h-5 w-5" />,
-    title: "Results, Not Just Tech",
+    title: "🎯 Results, Not Just Tech",
     description: "We focus on outcomes — more leads, better workflows, and smarter support — not just code."
   },
   {
     icon: <Hammer className="h-5 w-5" />,
-    title: "End-to-End Support",
-    description: "From strategy to setup to scale — we don’t just build automations, we stand by you every step of the journey."
+    title: "🛠️ End-to-End Support",
+    description: "From strategy to setup to scale — we don't just build automations, we stand by you every step of the journey."
   }
 ];
 
