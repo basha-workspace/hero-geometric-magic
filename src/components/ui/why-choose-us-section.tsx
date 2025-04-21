@@ -63,12 +63,12 @@ export function WhyChooseUsSection() {
             <li key={reason.title} className="relative min-h-[14rem] list-none">
               <div className="relative h-full rounded-2xl border border-white/30 bg-black p-2">
                 <GlowingEffect
-                  spread={36}
+                  spread={48}          // increased spread for stronger glow
                   glow={true}
                   disabled={false}
                   proximity={48}
                   inactiveZone={0.03}
-                  borderWidth={2}
+                  borderWidth={3}       // increased border width for more visible glow
                 />
                 <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border border-white/30 bg-black p-7 shadow-lg">
                   <div className="relative flex flex-1 flex-col justify-between gap-4">
