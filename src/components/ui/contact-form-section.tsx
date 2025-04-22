@@ -1,24 +1,17 @@
+
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { Button } from "@/components/ui/button";
-import { RainbowButton } from "@/components/ui/rainbow-button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Calendar, Send } from "lucide-react";
 import { BackgroundPaths } from "./background-paths";
 import { GlowEffect } from "./glow-effect";
+import { GradientButton } from "./gradient-button";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
@@ -136,18 +129,19 @@ export function ContactFormSection() {
                   )}
                 />
                 <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-2 md:pt-4">
-                  <Button type="submit" className="flex-1 gap-2 h-10 md:h-12 text-base md:text-lg bg-gradient-to-r from-[#44d6ff] to-[#d877ff] hover:opacity-90 transition-opacity">
+                  <GradientButton type="submit" className="flex-1 gap-2">
                     <Send className="w-4 h-4 md:w-5 md:h-5" />
                     Submit Details
-                  </Button>
-                  <RainbowButton
+                  </GradientButton>
+                  <GradientButton
                     type="button"
+                    variant="variant"
                     onClick={() => window.open("YOUR_CALENDLY_LINK", "_blank")}
-                    className="flex-1 gap-2 h-10 md:h-12 text-base md:text-lg"
+                    className="flex-1 gap-2"
                   >
                     <Calendar className="w-4 h-4 md:w-5 md:h-5" />
-                    Schedule a Strategy Call
-                  </RainbowButton>
+                    Schedule a Call
+                  </GradientButton>
                 </div>
               </div>
             </div>
