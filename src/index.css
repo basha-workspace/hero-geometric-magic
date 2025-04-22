@@ -88,6 +88,12 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  .required:after {
+    content: "*";
+    margin-left: 4px;
+    color: hsl(var(--destructive));
+  }
 }
 
 @layer base {
