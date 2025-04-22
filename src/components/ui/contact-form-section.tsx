@@ -49,20 +49,20 @@ export function ContactFormSection() {
   };
 
   return (
-    <section className="w-full bg-black relative py-20">
+    <section className="w-full bg-black relative py-12 md:py-20">
       <BackgroundPaths />
-      <div className="mx-auto max-w-2xl px-6 relative z-10">
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-tr from-[#d877ff] via-[#44d6ff] to-[#ffffff] bg-clip-text text-transparent animate-[rainbow_8s_linear_infinite]">
+      <div className="mx-auto max-w-2xl px-4 md:px-6 relative z-10">
+        <div className="mb-8 md:mb-12 text-center">
+          <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4 bg-gradient-to-tr from-[#d877ff] via-[#44d6ff] to-[#ffffff] bg-clip-text text-transparent animate-[rainbow_8s_linear_infinite]">
             🚀 Let's Build Your AI-Powered Future
           </h2>
-          <p className="text-gray-300 md:text-lg max-w-xl mx-auto">
+          <p className="text-sm md:text-lg text-gray-300 max-w-xl mx-auto">
             Ready to automate, scale, and grow? Tell us a bit about your business and we'll reach out with a custom solution — or book a free 15‑min strategy call with our team.
           </p>
         </div>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 md:space-y-6">
             <div className="relative">
               <GlowEffect
                 colors={['#44d6ff', '#d877ff', '#44d6ff', '#d877ff']}
@@ -70,18 +70,17 @@ export function ContactFormSection() {
                 blur="medium"
                 duration={8}
               />
-              <div className="space-y-6 rounded-2xl border border-white/10 bg-black/70 backdrop-blur-md p-8 relative z-10">
+              <div className="space-y-4 md:space-y-6 rounded-2xl border border-white/10 bg-black/70 backdrop-blur-md p-6 md:p-8 relative z-10">
                 <FormField
                   control={form.control}
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white text-lg required">Name</FormLabel>
+                      <FormLabel className="text-white text-base md:text-lg required">Name</FormLabel>
                       <FormControl>
                         <Input 
-                          placeholder="Your name" 
                           {...field} 
-                          className="bg-black/50 text-white border-white/20 h-12 text-lg transition-colors hover:border-white/40 focus:border-[#44d6ff]" 
+                          className="bg-black/50 text-white border-white/20 h-10 md:h-12 text-base md:text-lg transition-colors hover:border-white/40 focus:border-[#44d6ff]" 
                         />
                       </FormControl>
                       <FormMessage />
@@ -93,12 +92,11 @@ export function ContactFormSection() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white text-lg required">Email</FormLabel>
+                      <FormLabel className="text-white text-base md:text-lg required">Email</FormLabel>
                       <FormControl>
                         <Input 
-                          placeholder="you@example.com" 
                           {...field} 
-                          className="bg-black/50 text-white border-white/20 h-12 text-lg transition-colors hover:border-white/40 focus:border-[#44d6ff]" 
+                          className="bg-black/50 text-white border-white/20 h-10 md:h-12 text-base md:text-lg transition-colors hover:border-white/40 focus:border-[#44d6ff]" 
                         />
                       </FormControl>
                       <FormMessage />
@@ -110,12 +108,11 @@ export function ContactFormSection() {
                   name="businessType"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white text-lg required">Business Type</FormLabel>
+                      <FormLabel className="text-white text-base md:text-lg required">Business Type</FormLabel>
                       <FormControl>
                         <Input 
-                          placeholder="e.g., E-commerce, SaaS, Agency" 
                           {...field} 
-                          className="bg-black/50 text-white border-white/20 h-12 text-lg transition-colors hover:border-white/40 focus:border-[#44d6ff]" 
+                          className="bg-black/50 text-white border-white/20 h-10 md:h-12 text-base md:text-lg transition-colors hover:border-white/40 focus:border-[#44d6ff]" 
                         />
                       </FormControl>
                       <FormMessage />
@@ -127,29 +124,28 @@ export function ContactFormSection() {
                   name="requirement"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white text-lg">Brief Requirement (optional)</FormLabel>
+                      <FormLabel className="text-white text-base md:text-lg">Brief Requirement (optional)</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Tell us about your automation needs..."
                           {...field}
-                          className="bg-black/50 text-white border-white/20 min-h-[100px] text-lg transition-colors hover:border-white/40 focus:border-[#44d6ff]"
+                          className="bg-black/50 text-white border-white/20 min-h-[80px] md:min-h-[100px] text-base md:text-lg transition-colors hover:border-white/40 focus:border-[#44d6ff]"
                         />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <Button type="submit" className="flex-1 gap-2 h-12 text-lg bg-gradient-to-r from-[#44d6ff] to-[#d877ff] hover:opacity-90 transition-opacity">
-                    <Send className="w-5 h-5" />
+                <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-2 md:pt-4">
+                  <Button type="submit" className="flex-1 gap-2 h-10 md:h-12 text-base md:text-lg bg-gradient-to-r from-[#44d6ff] to-[#d877ff] hover:opacity-90 transition-opacity">
+                    <Send className="w-4 h-4 md:w-5 md:h-5" />
                     Submit Details
                   </Button>
                   <RainbowButton
                     type="button"
                     onClick={() => window.open("YOUR_CALENDLY_LINK", "_blank")}
-                    className="flex-1 gap-2 h-12 text-lg"
+                    className="flex-1 gap-2 h-10 md:h-12 text-base md:text-lg"
                   >
-                    <Calendar className="w-5 h-5" />
+                    <Calendar className="w-4 h-4 md:w-5 md:h-5" />
                     Schedule a Strategy Call
                   </RainbowButton>
                 </div>
