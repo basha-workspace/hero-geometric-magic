@@ -1,4 +1,3 @@
-
 "use client";
 
 import {
@@ -7,7 +6,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { GlowEffect } from "./glow-effect";
 import { GradientButton } from "./gradient-button";
 
 const faqItems = [
@@ -66,31 +64,23 @@ export function FaqSection() {
           </p>
         </div>
 
-        <div className="relative">
-          <GlowEffect
-            colors={['#44d6ff', '#d877ff', '#44d6ff', '#d877ff']}
-            mode="flowHorizontal"
-            blur="medium"
-            duration={8}
-          />
-          <div className="rounded-2xl border border-white/10 bg-black/70 backdrop-blur-md p-6 md:p-8 relative z-10">
-            <Accordion type="single" collapsible className="w-full">
-              {faqItems.map((item) => (
-                <AccordionItem
-                  key={item.id}
-                  value={item.id}
-                  className="border-white/10"
-                >
-                  <AccordionTrigger className="text-white hover:text-white/80 text-left text-sm md:text-base py-4">
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-gray-300 text-sm md:text-base">
-                    {item.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+        <div className="rounded-2xl border border-white/10 bg-black/70 backdrop-blur-md p-6 md:p-8 relative z-10">
+          <Accordion type="single" collapsible className="w-full">
+            {faqItems.map((item) => (
+              <AccordionItem
+                key={item.id}
+                value={item.id}
+                className="border-white/10"
+              >
+                <AccordionTrigger className="text-white hover:text-white/80 text-left text-sm md:text-base py-4">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-300 text-sm md:text-base">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
 
         <div className="mt-8 md:mt-12 text-center">
