@@ -68,22 +68,19 @@ export const Timeline = () => {
         {data.map((item, index) => (
           <div
             key={index}
-            className="flex justify-start pt-10 md:pt-20 md:gap-10"
+            className="flex flex-col md:flex-row justify-start pt-10 md:pt-20 md:gap-10 space-y-4 md:space-y-0"
           >
-            <div className="sticky flex flex-col md:flex-row z-40 items-center top-20 self-start max-w-xs lg:max-w-sm md:w-full">
-              <div className="h-12 absolute left-3 md:left-3 w-12 rounded-full bg-black flex items-center justify-center border border-white/20">
+            <div className="sticky flex flex-col md:flex-row z-40 items-start md:items-center top-20 self-start max-w-full md:max-w-sm w-full">
+              <div className="h-12 w-12 rounded-full bg-black flex items-center justify-center border border-white/20 mb-4 md:mb-0 md:mr-6 self-start md:self-center">
                 {item.icon}
               </div>
-              <h3 className="hidden md:block text-xl md:pl-24 text-3xl font-bold text-white">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 md:mb-0">
                 {item.title}
               </h3>
             </div>
 
-            <div className="relative pl-20 pr-4 md:pl-4 w-full">
-              <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-white">
-                {item.title}
-              </h3>
-              <p className="text-gray-300 text-sm md:text-base max-w-xl mb-8">
+            <div className="relative w-full">
+              <p className="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
                 {item.content}
               </p>
             </div>
@@ -93,7 +90,7 @@ export const Timeline = () => {
           style={{
             height: height + "px",
           }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+          className="absolute left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
         >
           <motion.div
             style={{
@@ -107,3 +104,4 @@ export const Timeline = () => {
     </div>
   );
 };
+
