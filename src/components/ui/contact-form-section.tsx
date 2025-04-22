@@ -1,5 +1,6 @@
 
 "use client";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -17,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Calendar, Send } from "lucide-react";
+import { BackgroundPaths } from "./background-paths";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
@@ -48,8 +50,9 @@ export function ContactFormSection() {
   };
 
   return (
-    <section className="w-full bg-black py-20">
-      <div className="mx-auto max-w-2xl px-6">
+    <section className="w-full bg-black relative py-20">
+      <BackgroundPaths />
+      <div className="mx-auto max-w-2xl px-6 relative z-10">
         <div className="mb-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-tr from-[#d877ff] via-[#44d6ff] to-[#ffffff] bg-clip-text text-transparent animate-[rainbow_8s_linear_infinite]">
             🚀 Let's Build Your AI-Powered Future
@@ -61,7 +64,7 @@ export function ContactFormSection() {
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div className="space-y-6 rounded-2xl border border-white/10 bg-[#121213]/50 backdrop-blur-sm p-8">
+            <div className="space-y-6 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-md p-8">
               <FormField
                 control={form.control}
                 name="name"
@@ -72,7 +75,7 @@ export function ContactFormSection() {
                       <Input 
                         placeholder="Your name" 
                         {...field} 
-                        className="bg-[#121213] text-white border-white/20 h-12 text-lg transition-colors hover:border-white/40 focus:border-[#44d6ff]" 
+                        className="bg-black/50 text-white border-white/20 h-12 text-lg transition-colors hover:border-white/40 focus:border-[#44d6ff]" 
                       />
                     </FormControl>
                     <FormMessage />
@@ -89,7 +92,7 @@ export function ContactFormSection() {
                       <Input 
                         placeholder="you@example.com" 
                         {...field} 
-                        className="bg-[#121213] text-white border-white/20 h-12 text-lg transition-colors hover:border-white/40 focus:border-[#44d6ff]" 
+                        className="bg-black/50 text-white border-white/20 h-12 text-lg transition-colors hover:border-white/40 focus:border-[#44d6ff]" 
                       />
                     </FormControl>
                     <FormMessage />
@@ -106,7 +109,7 @@ export function ContactFormSection() {
                       <Input 
                         placeholder="e.g., E-commerce, SaaS, Agency" 
                         {...field} 
-                        className="bg-[#121213] text-white border-white/20 h-12 text-lg transition-colors hover:border-white/40 focus:border-[#44d6ff]" 
+                        className="bg-black/50 text-white border-white/20 h-12 text-lg transition-colors hover:border-white/40 focus:border-[#44d6ff]" 
                       />
                     </FormControl>
                     <FormMessage />
@@ -123,7 +126,7 @@ export function ContactFormSection() {
                       <Textarea
                         placeholder="Tell us about your automation needs..."
                         {...field}
-                        className="bg-[#121213] text-white border-white/20 min-h-[100px] text-lg transition-colors hover:border-white/40 focus:border-[#44d6ff]"
+                        className="bg-black/50 text-white border-white/20 min-h-[100px] text-lg transition-colors hover:border-white/40 focus:border-[#44d6ff]"
                       />
                     </FormControl>
                     <FormMessage />
