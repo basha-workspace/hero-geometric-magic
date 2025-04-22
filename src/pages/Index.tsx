@@ -5,6 +5,7 @@ import { WhyChooseUsSection } from "@/components/ui/why-choose-us-section";
 import { Timeline } from "@/components/ui/timeline";
 import { ContactFormSection } from "@/components/ui/contact-form-section";
 import { FaqSection } from "@/components/ui/faq-section";
+import { Footer } from "@/components/ui/footer";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <WhyChooseUsSection />
       <ContactFormSection />
       <FaqSection />
+      <Footer />
     </>
   );
 };

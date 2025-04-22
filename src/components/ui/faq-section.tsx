@@ -6,7 +6,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { GradientButton } from "./gradient-button";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Mail } from "lucide-react";
 
 const faqItems = [
   {
@@ -87,12 +88,25 @@ export function FaqSection() {
           <p className="text-gray-300 mb-4 text-sm md:text-base">
             Still have questions? We're here to help!
           </p>
-          <GradientButton
+          <Button 
             onClick={() => window.open("mailto:support@example.com", "_blank")}
-            className="mx-auto"
+            className="group mx-auto"
+            variant="secondary"
           >
+            <Mail 
+              className="-ms-1 me-2 opacity-60" 
+              size={16} 
+              strokeWidth={2} 
+              aria-hidden="true" 
+            />
             Contact Support
-          </GradientButton>
+            <ArrowRight
+              className="-me-1 ms-2 opacity-60 transition-transform group-hover:translate-x-0.5"
+              size={16}
+              strokeWidth={2}
+              aria-hidden="true"
+            />
+          </Button>
         </div>
       </div>
     </section>
