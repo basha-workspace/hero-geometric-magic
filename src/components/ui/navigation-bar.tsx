@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 
@@ -41,15 +40,15 @@ const NavigationBar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-white/10 rounded-b-3xl">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-center h-16 gap-8">
+    <nav className="fixed top-0 left-1/2 -translate-x-1/2 z-50 bg-black/90 backdrop-blur-sm border-b border-white/10 rounded-full w-fit mt-4">
+      <div className="px-8">
+        <div className="flex items-center justify-center h-12 gap-6">
           {menuItems.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={cn(
-                "relative px-4 py-2 text-sm font-medium text-white/70 transition-colors duration-200 hover:text-white",
+                "relative px-3 py-1 text-sm font-medium text-white/70 transition-colors duration-200 hover:text-white",
                 activeSection === item.id && "text-white"
               )}
             >
