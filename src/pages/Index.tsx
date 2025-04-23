@@ -6,7 +6,7 @@ import { Timeline } from "@/components/ui/timeline";
 import { ContactFormSection } from "@/components/ui/contact-form-section";
 import { FaqSection } from "@/components/ui/faq-section";
 import { Footer } from "@/components/ui/footer";
-import { NavBar } from "@/components/ui/tubelight-navbar";
+import { NavBar } from "@/components/ui/modern-navbar";
 import { Home, User, Briefcase, FileText } from "lucide-react";
 
 const Index = () => {
