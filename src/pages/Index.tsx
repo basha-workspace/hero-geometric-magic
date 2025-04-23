@@ -6,15 +6,25 @@ import { Timeline } from "@/components/ui/timeline";
 import { ContactFormSection } from "@/components/ui/contact-form-section";
 import { FaqSection } from "@/components/ui/faq-section";
 import { Footer } from "@/components/ui/footer";
+import NavigationBar from "@/components/ui/navigation-bar";
 
 const Index = () => {
   return (
     <>
-      <HeroGeometric />
-      <ServicesSection />
+      <NavigationBar />
+      <div id="home">
+        <HeroGeometric />
+      </div>
+      <div id="services">
+        <ServicesSection />
+      </div>
       <Timeline />
-      <WhyChooseUsSection />
-      <ContactFormSection />
+      <div id="why-us">
+        <WhyChooseUsSection />
+      </div>
+      <div id="contact">
+        <ContactFormSection />
+      </div>
       <FaqSection />
       <Footer />
     </>
