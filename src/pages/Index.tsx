@@ -6,12 +6,20 @@ import { Timeline } from "@/components/ui/timeline";
 import { ContactFormSection } from "@/components/ui/contact-form-section";
 import { FaqSection } from "@/components/ui/faq-section";
 import { Footer } from "@/components/ui/footer";
-import { NavigationBar } from "@/components/ui/navigation-bar";
+import { NavBar } from "@/components/ui/tubelight-navbar";
+import { Home, User, Briefcase, FileText } from "lucide-react";
 
 const Index = () => {
+  const navItems = [
+    { name: "Home", url: "/", icon: Home },
+    { name: "About", url: "#about", icon: User },
+    { name: "Services", url: "#services", icon: Briefcase },
+    { name: "Contact", url: "#contact", icon: FileText },
+  ];
+
   return (
     <>
-      <NavigationBar />
+      <NavBar items={navItems} />
       <main className="pt-16">
         <HeroGeometric />
         <ServicesSection />
