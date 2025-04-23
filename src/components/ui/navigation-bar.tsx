@@ -1,11 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 const NavigationBar = () => {
   const [activeSection, setActiveSection] = useState('home');
-  const isMobile = useIsMobile();
 
   const menuItems = [
     { id: 'home', label: 'Home' },
@@ -43,10 +40,7 @@ const NavigationBar = () => {
   }, []);
 
   return (
-    <nav className={cn(
-      "fixed left-1/2 -translate-x-1/2 z-50 bg-black/90 backdrop-blur-sm border-b border-white/10 rounded-full w-fit",
-      isMobile ? "bottom-4" : "top-4"
-    )}>
+    <nav className="fixed top-0 left-1/2 -translate-x-1/2 z-50 bg-black/90 backdrop-blur-sm border-b border-white/10 rounded-full w-fit mt-4">
       <div className="px-8">
         <div className="flex items-center justify-center h-12 gap-6">
           {menuItems.map((item) => (

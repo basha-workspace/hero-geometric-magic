@@ -1,3 +1,4 @@
+
 import { cn } from "@/lib/utils";
 import {
   BookOpenCheck,
@@ -84,14 +85,10 @@ const Feature = ({
   return (
     <div
       className={cn(
-        "flex flex-col lg:border-r py-10 relative group/feature border-white/10 transition-all duration-300 hover:bg-white/[0.02]",
+        "flex flex-col lg:border-r py-10 relative group/feature border-white/10",
         (index === 0 || index === 4) && "lg:border-l border-white/10",
         index < 4 && "lg:border-b border-white/10"
       )}
-      style={{
-        opacity: 0,
-        animation: `fadeIn 0.5s ease-out forwards ${index * 0.1}s`,
-      }}
     >
       {index < 4 && (
         <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />

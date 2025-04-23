@@ -1,3 +1,4 @@
+
 "use client";
 
 import { GlowingEffect } from "@/components/ui/glowing-effect";
@@ -58,16 +59,8 @@ export function WhyChooseUsSection() {
           Why Choose Us
         </h2>
         <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-          {reasons.map((reason, index) => (
-            <li 
-              key={reason.title} 
-              className="relative min-h-[14rem] list-none"
-              style={{
-                opacity: 0,
-                transform: 'translateY(20px)',
-                animation: `slideUp 0.6s ease-out forwards ${index * 0.1}s`,
-              }}
-            >
+          {reasons.map((reason) => (
+            <li key={reason.title} className="relative min-h-[14rem] list-none">
               <div className="group relative h-full rounded-2xl border border-white/40 bg-black p-2 shadow-xl transition-all duration-300 hover:shadow-[0_0_40px_10px_rgba(110,63,255,0.3)]">
                 <GlowingEffect
                   spread={96}                // higher for much larger glow
