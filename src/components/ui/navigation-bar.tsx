@@ -41,7 +41,7 @@ const NavigationBar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1A1F2C] bg-opacity-95 backdrop-blur-sm border-b border-white/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-white/10 rounded-b-3xl">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center h-16 gap-8">
           {menuItems.map((item) => (
