@@ -6,17 +6,21 @@ import { Timeline } from "@/components/ui/timeline";
 import { ContactFormSection } from "@/components/ui/contact-form-section";
 import { FaqSection } from "@/components/ui/faq-section";
 import { Footer } from "@/components/ui/footer";
+import { NavigationBar } from "@/components/ui/navigation-bar";
 
 const Index = () => {
   return (
     <>
-      <HeroGeometric />
-      <ServicesSection />
-      <Timeline />
-      <WhyChooseUsSection />
-      <ContactFormSection />
-      <FaqSection />
-      <Footer />
+      <NavigationBar />
+      <main className="pt-16">
+        <HeroGeometric />
+        <ServicesSection />
+        <Timeline />
+        <WhyChooseUsSection />
+        <ContactFormSection />
+        <FaqSection />
+        <Footer />
+      </main>
     </>
   );
 };
