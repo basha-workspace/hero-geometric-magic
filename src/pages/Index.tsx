@@ -6,10 +6,12 @@ import { Timeline } from "@/components/ui/timeline";
 import { ContactFormSection } from "@/components/ui/contact-form-section";
 import { FaqSection } from "@/components/ui/faq-section";
 import { Footer } from "@/components/ui/footer";
+import { NavHeader } from "@/components/ui/nav-header";
 
 const Index = () => {
   return (
     <>
+      <NavHeader />
       <HeroGeometric />
       <ServicesSection />
       <Timeline />
