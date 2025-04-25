@@ -58,20 +58,26 @@ export function WhyChooseUsSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.15,
         delayChildren: 0.2,
       },
     },
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { 
+      opacity: 0,
+      y: 40,
+      scale: 0.9,
+    },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: {
-        duration: 0.6,
-        ease: [0.23, 0.86, 0.39, 0.96],
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
       },
     },
   };
@@ -82,7 +88,11 @@ export function WhyChooseUsSection() {
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ 
+            duration: 0.6,
+            type: "spring",
+            stiffness: 100 
+          }}
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-tr from-[#d877ff] via-[#44d6ff] to-[#ffffff] bg-clip-text text-transparent animate-[rainbow_8s_linear_infinite]"
         >
@@ -92,17 +102,25 @@ export function WhyChooseUsSection() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
         >
           {reasons.map((reason) => (
             <motion.li
               key={reason.title}
               variants={cardVariants}
-              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+              whileHover={{ 
+                scale: 1.02,
+                y: -5,
+                transition: { 
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 10
+                }
+              }}
               className="relative min-h-[14rem] list-none"
             >
-              <div className="group relative h-full rounded-2xl border border-white/40 bg-black p-2 shadow-xl transition-all duration-300 hover:shadow-[0_0_40px_10px_rgba(110,63,255,0.3)]">
+              <div className="group relative h-full rounded-2xl border border-white/40 bg-black p-2 shadow-xl transition-all duration-500 hover:shadow-[0_0_40px_10px_rgba(110,63,255,0.3)]">
                 <GlowingEffect
                   spread={96}
                   glow={true}
@@ -111,17 +129,28 @@ export function WhyChooseUsSection() {
                   proximity={200}
                   inactiveZone={0}
                   hoverGlow={true}
-                  className="transition-all duration-300 group-hover:opacity-100"
+                  className="transition-all duration-500 group-hover:opacity-100"
                 />
                 <motion.div 
                   whileHover={{ y: -5 }}
-                  transition={{ duration: 0.2 }}
+                  transition={{ 
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 10
+                  }}
                   className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border border-white/40 bg-[#070711] p-7 shadow-lg transition-all duration-300"
                 >
                   <div className="relative flex flex-1 flex-col justify-between gap-4">
                     <motion.div
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ duration: 0.2 }}
+                      whileHover={{ 
+                        scale: 1.1,
+                        rotate: 5,
+                        transition: {
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 8
+                        }
+                      }}
                       className="w-fit rounded-lg border border-white/30 bg-gradient-to-tr from-[#221136] via-[#222a3a] to-[#1b192c] p-3 flex items-center justify-center shadow-md transition-all duration-300"
                     >
                       {reason.icon}
