@@ -10,6 +10,7 @@ import {
   Workflow
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/lib/hooks";
 
 export function ServicesSection() {
   const services = [
@@ -66,22 +67,98 @@ export function ServicesSection() {
     }
   };
 
-  const cardVariants = {
-    hidden: { 
-      opacity: 0,
-      y: 50,
-      scale: 0.9
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
+  const Feature = ({
+    title,
+    description,
+    icon,
+  }: {
+    title: string;
+    description: string;
+    icon: React.ReactNode;
+  }) => {
+    const isMobile = useIsMobile();
+    
+    const cardVariants = {
+      hidden: { 
+        opacity: 0,
+        y: 30,
+        scale: 0.95
+      },
+      visible: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {
+          type: "spring",
+          stiffness: 100,
+          damping: 12
+        }
       }
-    }
+    };
+
+    const iconVariants = {
+      hidden: { scale: 0.8, rotate: -10 },
+      visible: { 
+        scale: 1, 
+        rotate: 0,
+        transition: {
+          type: "spring",
+          stiffness: 200
+        }
+      },
+      hover: { 
+        scale: 1.1,
+        rotate: 5,
+        transition: {
+          type: "spring",
+          stiffness: 400,
+          damping: 10
+        }
+      }
+    };
+
+    return (
+      <motion.div
+        variants={cardVariants}
+        whileInView={isMobile ? {
+          y: 0,
+          scale: 1.02,
+          transition: {
+            type: "spring",
+            stiffness: 100,
+            damping: 15
+          }
+        } : undefined}
+        viewport={isMobile ? { once: false, amount: 0.6 } : undefined}
+        whileHover={!isMobile ? { 
+          y: -8,
+          transition: {
+            type: "spring",
+            stiffness: 400,
+            damping: 10
+          }
+        } : undefined}
+        className="flex flex-col lg:border-r py-10 relative group/feature border-white/10"
+      >
+        <div className="opacity-0 group-hover/feature:opacity-100 transition duration-500 absolute inset-0 h-full w-full bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+        <motion.div 
+          variants={iconVariants}
+          whileHover="hover"
+          className="mb-4 relative z-10 px-10 text-white/80"
+        >
+          {icon}
+        </motion.div>
+        <div className="text-lg font-bold mb-2 relative z-10 px-10">
+          <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-white/20 group-hover/feature:bg-blue-500 transition-all duration-300 origin-center" />
+          <span className="group-hover/feature:translate-x-2 transition duration-300 inline-block text-white">
+            {title}
+          </span>
+        </div>
+        <p className="text-sm text-white/70 max-w-xs relative z-10 px-10">
+          {description}
+        </p>
+      </motion.div>
+    );
   };
 
   return (
@@ -111,87 +188,5 @@ export function ServicesSection() {
     </div>
   );
 }
-
-const Feature = ({
-  title,
-  description,
-  icon,
-}: {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-}) => {
-  const cardVariants = {
-    hidden: { 
-      opacity: 0,
-      y: 30,
-      scale: 0.95
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    }
-  };
-
-  const iconVariants = {
-    hidden: { scale: 0.8, rotate: -10 },
-    visible: { 
-      scale: 1, 
-      rotate: 0,
-      transition: {
-        type: "spring",
-        stiffness: 200
-      }
-    },
-    hover: { 
-      scale: 1.1,
-      rotate: 5,
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 10
-      }
-    }
-  };
-
-  return (
-    <motion.div
-      variants={cardVariants}
-      whileHover={{ 
-        y: -8,
-        transition: {
-          type: "spring",
-          stiffness: 400,
-          damping: 10
-        }
-      }}
-      className="flex flex-col lg:border-r py-10 relative group/feature border-white/10"
-    >
-      <div className="opacity-0 group-hover/feature:opacity-100 transition duration-500 absolute inset-0 h-full w-full bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-      <motion.div 
-        variants={iconVariants}
-        whileHover="hover"
-        className="mb-4 relative z-10 px-10 text-white/80"
-      >
-        {icon}
-      </motion.div>
-      <div className="text-lg font-bold mb-2 relative z-10 px-10">
-        <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-white/20 group-hover/feature:bg-blue-500 transition-all duration-300 origin-center" />
-        <span className="group-hover/feature:translate-x-2 transition duration-300 inline-block text-white">
-          {title}
-        </span>
-      </div>
-      <p className="text-sm text-white/70 max-w-xs relative z-10 px-10">
-        {description}
-      </p>
-    </motion.div>
-  );
-};
 
 export default ServicesSection;

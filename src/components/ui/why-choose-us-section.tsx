@@ -1,9 +1,9 @@
-
 "use client";
 
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/lib/hooks";
 import {
   Sparkles,
   Hammer,
@@ -53,6 +53,8 @@ const reasons = [
 ];
 
 export function WhyChooseUsSection() {
+  const isMobile = useIsMobile();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -109,7 +111,16 @@ export function WhyChooseUsSection() {
             <motion.li
               key={reason.title}
               variants={cardVariants}
-              whileHover={{ 
+              whileInView={isMobile ? {
+                scale: 1.02,
+                transition: {
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 15
+                }
+              } : undefined}
+              viewport={isMobile ? { once: false, amount: 0.6 } : undefined}
+              whileHover={!isMobile ? { 
                 scale: 1.02,
                 y: -5,
                 transition: { 
@@ -117,7 +128,7 @@ export function WhyChooseUsSection() {
                   stiffness: 400,
                   damping: 10
                 }
-              }}
+              } : undefined}
               className="relative min-h-[14rem] list-none"
             >
               <div className="group relative h-full rounded-2xl border border-white/40 bg-black p-2 shadow-xl transition-all duration-500 hover:shadow-[0_0_40px_10px_rgba(110,63,255,0.3)]">
