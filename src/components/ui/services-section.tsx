@@ -1,4 +1,3 @@
-
 import { cn } from "@/lib/utils";
 import {
   BookOpenCheck,
@@ -10,6 +9,7 @@ import {
   Puzzle,
   Workflow
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function ServicesSection() {
   const services = [
@@ -55,17 +55,39 @@ export function ServicesSection() {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
   return (
     <div className="w-full bg-black py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-tr from-[#d877ff] via-[#44d6ff] to-[#ffffff] bg-clip-text text-transparent animate-[rainbow_8s_linear_infinite]">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-tr from-[#d877ff] via-[#44d6ff] to-[#ffffff] bg-clip-text text-transparent animate-[rainbow_8s_linear_infinite]"
+        >
           Our AI Automation Services
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 max-w-7xl mx-auto">
+        </motion.h2>
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 max-w-7xl mx-auto"
+        >
           {services.map((service, index) => (
             <Feature key={service.title} {...service} index={index} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
@@ -82,8 +104,22 @@ const Feature = ({
   icon: React.ReactNode;
   index: number;
 }) => {
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <div
+    <motion.div
+      variants={itemVariants}
+      whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
       className={cn(
         "flex flex-col lg:border-r py-10 relative group/feature border-white/10",
         (index === 0 || index === 4) && "lg:border-l border-white/10",
@@ -91,14 +127,23 @@ const Feature = ({
       )}
     >
       {index < 4 && (
-        <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+        <motion.div 
+          className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-black/20 to-transparent pointer-events-none"
+          whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+        />
       )}
       {index >= 4 && (
-        <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-black/20 to-transparent pointer-events-none" />
+        <motion.div 
+          className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-black/20 to-transparent pointer-events-none"
+          whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+        />
       )}
-      <div className="mb-4 relative z-10 px-10 text-white/80">
+      <motion.div 
+        className="mb-4 relative z-10 px-10 text-white/80"
+        whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+      >
         {icon}
-      </div>
+      </motion.div>
       <div className="text-lg font-bold mb-2 relative z-10 px-10">
         <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-white/20 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center" />
         <span className="group-hover/feature:translate-x-2 transition duration-200 inline-block text-white">
@@ -108,7 +153,7 @@ const Feature = ({
       <p className="text-sm text-white/70 max-w-xs relative z-10 px-10">
         {description}
       </p>
-    </div>
+    </motion.div>
   );
 };
 
