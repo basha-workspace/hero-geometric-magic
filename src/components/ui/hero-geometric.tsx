@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -96,6 +95,13 @@ function HeroGeometric({
                 ease: [0.25, 0.4, 0.25, 1],
             },
         }),
+    };
+
+    const scrollToContact = () => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     return (
@@ -203,6 +209,7 @@ function HeroGeometric({
                         </TextEffect>
                         
                         <RainbowButton 
+                            onClick={scrollToContact}
                             className="text-white hover:opacity-90 transition-opacity"
                             style={{
                                 "--color-1": "0 0% 100%",

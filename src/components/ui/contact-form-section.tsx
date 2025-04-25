@@ -136,7 +136,7 @@ export function ContactFormSection() {
                   <GradientButton
                     type="button"
                     variant="variant"
-                    onClick={() => window.open("YOUR_CALENDLY_LINK", "_blank")}
+                    onClick={() => window.open("https://calendly.com/lalbashaautomates/30min", "_blank")}
                     className="flex-1 gap-2"
                   >
                     <Calendar className="w-4 h-4 md:w-5 md:h-5" />

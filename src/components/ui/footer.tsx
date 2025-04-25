@@ -11,11 +11,11 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="font-semibold text-lg">Business Contact</h3>
             <a 
-              href="mailto:contact@example.com" 
+              href="mailto:lalbasha@automatea2z.in" 
               className="flex items-center justify-center md:justify-start gap-2 text-gray-300 hover:text-white transition-colors"
             >
               <Mail size={18} />
-              contact@example.com
+              lalbasha@automatea2z.in
             </a>
           </div>
           
