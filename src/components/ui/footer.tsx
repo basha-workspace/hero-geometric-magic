@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Mail } from "lucide-react";
+import { Mail, Link as LinkIcon } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function Footer() {
@@ -68,6 +68,17 @@ export function Footer() {
                 rel="noopener noreferrer"
               >
                 Lal
+              </a>
+            </div>
+            <div className="mt-2">
+              <a 
+                href="https://instantweb.in"
+                className="flex items-center justify-center md:justify-start gap-2 text-gray-300 hover:text-white transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LinkIcon size={18} />
+                Web Services
               </a>
             </div>
           </motion.div>
