@@ -1,3 +1,4 @@
+
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -73,6 +74,14 @@ export function ContactFormSection() {
         viewport={{ once: true }}
         variants={containerVariants}
         className="mx-auto max-w-2xl px-4 md:px-6 relative z-10"
+        animate={{
+          y: [0, -10, 0],
+          transition: {
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }
+        }}
       >
         <motion.div variants={itemVariants} className="mb-8 md:mb-12 text-center">
           <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4 bg-gradient-to-tr from-[#d877ff] via-[#44d6ff] to-[#ffffff] bg-clip-text text-transparent animate-[rainbow_8s_linear_infinite]">

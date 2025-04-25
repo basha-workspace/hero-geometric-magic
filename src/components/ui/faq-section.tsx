@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail } from "lucide-react";
+import { motion } from "framer-motion";
 
 const faqItems = [
   {
@@ -56,33 +57,59 @@ export function FaqSection() {
   return (
     <section className="w-full bg-black relative py-12 md:py-20">
       <div className="mx-auto max-w-3xl px-4 md:px-6 relative z-10">
-        <div className="mb-8 md:mb-12 text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-8 md:mb-12 text-center"
+        >
           <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4 bg-gradient-to-tr from-[#d877ff] via-[#44d6ff] to-[#ffffff] bg-clip-text text-transparent animate-[rainbow_8s_linear_infinite]">
             ❓ Frequently Asked Questions
           </h2>
           <p className="text-sm md:text-lg text-gray-300 max-w-xl mx-auto">
             Find quick answers to common questions about our AI automation services.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="rounded-2xl border border-white/10 bg-black/70 backdrop-blur-md p-6 md:p-8 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.7,
+            type: "spring",
+            stiffness: 100,
+            damping: 15
+          }}
+          className="rounded-2xl border border-white/10 bg-black/70 backdrop-blur-md p-6 md:p-8 relative z-10"
+        >
           <Accordion type="single" collapsible className="w-full">
-            {faqItems.map((item) => (
-              <AccordionItem
+            {faqItems.map((item, index) => (
+              <motion.div
                 key={item.id}
-                value={item.id}
-                className="border-white/10"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.5,
+                  type: "spring",
+                  stiffness: 100
+                }}
               >
-                <AccordionTrigger className="text-white hover:text-white/80 text-left text-sm md:text-base py-4">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-300 text-sm md:text-base">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
+                <AccordionItem
+                  value={item.id}
+                  className="border-white/10"
+                >
+                  <AccordionTrigger className="text-white hover:text-white/80 text-left text-sm md:text-base py-4">
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-300 text-sm md:text-base">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             ))}
           </Accordion>
-        </div>
+        </motion.div>
 
         <div className="mt-8 md:mt-12 text-center">
           <p className="text-gray-300 mb-4 text-sm md:text-base">
