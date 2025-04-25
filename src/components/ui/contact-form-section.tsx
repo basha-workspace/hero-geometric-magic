@@ -1,4 +1,3 @@
-
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -12,6 +11,7 @@ import { Calendar, Send } from "lucide-react";
 import { BackgroundPaths } from "./background-paths";
 import { GlowEffect } from "./glow-effect";
 import { GradientButton } from "./gradient-button";
+import { motion } from "framer-motion";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
@@ -31,6 +31,29 @@ export function ContactFormSection() {
     },
   });
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.23, 0.86, 0.39, 0.96]
+      }
+    }
+  };
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       console.log("Form submitted:", values);
@@ -44,18 +67,28 @@ export function ContactFormSection() {
   return (
     <section className="w-full bg-black relative py-12 md:py-20">
       <BackgroundPaths />
-      <div className="mx-auto max-w-2xl px-4 md:px-6 relative z-10">
-        <div className="mb-8 md:mb-12 text-center">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={containerVariants}
+        className="mx-auto max-w-2xl px-4 md:px-6 relative z-10"
+      >
+        <motion.div variants={itemVariants} className="mb-8 md:mb-12 text-center">
           <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4 bg-gradient-to-tr from-[#d877ff] via-[#44d6ff] to-[#ffffff] bg-clip-text text-transparent animate-[rainbow_8s_linear_infinite]">
             🚀 Let's Build Your AI-Powered Future
           </h2>
           <p className="text-sm md:text-lg text-gray-300 max-w-xl mx-auto">
             Ready to automate, scale, and grow? Tell us a bit about your business and we'll reach out with a custom solution — or book a free 15‑min strategy call with our team.
           </p>
-        </div>
+        </motion.div>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 md:space-y-6">
+          <motion.form 
+            variants={itemVariants}
+            onSubmit={form.handleSubmit(onSubmit)} 
+            className="space-y-4 md:space-y-6"
+          >
             <div className="relative">
               <GlowEffect
                 colors={['#44d6ff', '#d877ff', '#44d6ff', '#d877ff']}
@@ -63,7 +96,10 @@ export function ContactFormSection() {
                 blur="medium"
                 duration={8}
               />
-              <div className="space-y-4 md:space-y-6 rounded-2xl border border-white/10 bg-black/70 backdrop-blur-md p-6 md:p-8 relative z-10">
+              <motion.div 
+                variants={itemVariants}
+                className="space-y-4 md:space-y-6 rounded-2xl border border-white/10 bg-black/70 backdrop-blur-md p-6 md:p-8 relative z-10"
+              >
                 <FormField
                   control={form.control}
                   name="name"
@@ -128,7 +164,10 @@ export function ContactFormSection() {
                     </FormItem>
                   )}
                 />
-                <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-2 md:pt-4">
+                <motion.div 
+                  variants={itemVariants}
+                  className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-2 md:pt-4"
+                >
                   <GradientButton type="submit" className="flex-1 gap-2">
                     <Send className="w-4 h-4 md:w-5 md:h-5" />
                     Submit Details
@@ -142,12 +181,12 @@ export function ContactFormSection() {
                     <Calendar className="w-4 h-4 md:w-5 md:h-5" />
                     Schedule a Call
                   </GradientButton>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
-          </form>
+          </motion.form>
         </Form>
-      </div>
+      </motion.div>
     </section>
   );
 }
