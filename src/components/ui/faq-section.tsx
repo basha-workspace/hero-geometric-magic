@@ -56,7 +56,7 @@ const faqItems = [
 
 export function FaqSection() {
   return (
-    <section className="w-full bg-black relative py-12 md:py-20">
+    <section id="faq" className="w-full bg-black relative py-12 md:py-20">
       <div className="mx-auto max-w-3xl px-4 md:px-6 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -69,10 +69,10 @@ export function FaqSection() {
           className="mb-8 md:mb-12 text-center"
         >
           <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4 bg-gradient-to-tr from-[#d877ff] via-[#44d6ff] to-[#ffffff] bg-clip-text text-transparent animate-[rainbow_8s_linear_infinite]">
-            ❓ Frequently Asked Questions
+            Frequently Asked Questions About AI Automation
           </h2>
           <p className="text-sm md:text-lg text-gray-300 max-w-xl mx-auto">
-            Find quick answers to common questions about our AI automation services.
+            Find quick answers to common questions about our AI automation services and solutions.
           </p>
         </motion.div>
 
@@ -104,12 +104,14 @@ export function FaqSection() {
                 <AccordionItem
                   value={item.id}
                   className="border-white/10"
+                  itemScope
+                  itemType="https://schema.org/Question"
                 >
-                  <AccordionTrigger className="text-white hover:text-white/80 text-left text-sm md:text-base py-4">
+                  <AccordionTrigger className="text-white hover:text-white/80 text-left text-sm md:text-base py-4" itemProp="name">
                     {item.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-gray-300 text-sm md:text-base">
-                    {item.answer}
+                  <AccordionContent className="text-gray-300 text-sm md:text-base" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <div itemProp="text">{item.answer}</div>
                   </AccordionContent>
                 </AccordionItem>
               </motion.div>
@@ -119,10 +121,10 @@ export function FaqSection() {
 
         <div className="mt-8 md:mt-12 text-center">
           <p className="text-gray-300 mb-4 text-sm md:text-base">
-            Still have questions? We're here to help!
+            Still have questions about our AI automation solutions? We're here to help!
           </p>
           <Button 
-            onClick={() => window.open("mailto:support@example.com", "_blank")}
+            onClick={() => window.open("mailto:support@automatea2z.com", "_blank")}
             className="group mx-auto"
             variant="secondary"
           >
