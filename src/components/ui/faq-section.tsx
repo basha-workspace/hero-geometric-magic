@@ -124,7 +124,7 @@ export function FaqSection() {
             Still have questions about our AI automation solutions? We're here to help!
           </p>
           <Button 
-            onClick={() => window.open("mailto:support@automatea2z.com", "_blank")}
+            onClick={() => window.open("mailto:lalbasha@automatea2z.in", "_blank")}
             className="group mx-auto"
             variant="secondary"
           >
