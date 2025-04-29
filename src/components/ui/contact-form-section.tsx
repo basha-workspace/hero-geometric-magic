@@ -20,6 +20,9 @@ const formSchema = z.object({
   requirement: z.string().optional(),
 });
 
+// Webhook URL for form submissions
+const WEBHOOK_URL = "https://hook.eu2.make.com/m6p4yvcp5lqhtawb3j1fjegont0eqf45";
+
 export function ContactFormSection() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -57,9 +60,29 @@ export function ContactFormSection() {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       console.log("Form submitted:", values);
+      
+      // Send data to webhook
+      const webhookResponse = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...values,
+          timestamp: new Date().toISOString(),
+          source: window.location.href
+        }),
+      });
+      
+      if (!webhookResponse.ok) {
+        console.error("Webhook error:", webhookResponse.statusText);
+        throw new Error("Failed to submit form data");
+      }
+      
       toast.success("Thanks for reaching out! We'll be in touch soon.");
       form.reset();
     } catch (error) {
+      console.error("Form submission error:", error);
       toast.error("Something went wrong. Please try again.");
     }
   };
