@@ -1,3 +1,4 @@
+
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,7 +18,7 @@ const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
   email: z.string().email({ message: "Please enter a valid email address" }),
   businessType: z.string().min(2, { message: "Business type is required" }),
-  requirement: z.string().optional(),
+  requirement: z.string().min(2, { message: "Please provide brief requirements" }),
 });
 
 // Webhook URL for form submissions
@@ -185,7 +186,7 @@ export function ContactFormSection() {
                   name="requirement"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white text-base md:text-lg">Brief Requirement (optional)</FormLabel>
+                      <FormLabel className="text-white text-base md:text-lg required">Brief Requirement</FormLabel>
                       <FormControl>
                         <Textarea
                           {...field}
