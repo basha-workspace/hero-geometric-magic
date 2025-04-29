@@ -1,4 +1,3 @@
-
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -49,8 +48,8 @@ export function ContactFormSection() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
-        ease: [0.23, 0.86, 0.39, 0.96]
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   };
@@ -71,15 +70,16 @@ export function ContactFormSection() {
       <motion.div 
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-50px" }}
         variants={containerVariants}
         className="mx-auto max-w-2xl px-4 md:px-6 relative z-10"
         animate={{
-          y: [0, -10, 0],
+          y: [0, -7, 0],
           transition: {
-            duration: 6,
+            duration: 8,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
+            times: [0, 0.5, 1]
           }
         }}
       >

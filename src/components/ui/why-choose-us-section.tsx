@@ -1,3 +1,4 @@
+
 "use client";
 
 import { GlowingEffect } from "@/components/ui/glowing-effect";
@@ -60,8 +61,9 @@ export function WhyChooseUsSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.12,
+        delayChildren: 0.15,
+        ease: [0.22, 1, 0.36, 1]
       },
     },
   };
@@ -69,8 +71,8 @@ export function WhyChooseUsSection() {
   const cardVariants = {
     hidden: { 
       opacity: 0,
-      y: 40,
-      scale: 0.9,
+      y: 30,
+      scale: 0.97,
     },
     visible: {
       opacity: 1,
@@ -78,8 +80,8 @@ export function WhyChooseUsSection() {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 100,
-        damping: 15,
+        stiffness: 80,
+        damping: 20,
       },
     },
   };
@@ -91,11 +93,10 @@ export function WhyChooseUsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ 
-            duration: 0.6,
-            type: "spring",
-            stiffness: 100 
+            duration: 0.7,
+            ease: [0.22, 1, 0.36, 1]
           }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-tr from-[#d877ff] via-[#44d6ff] to-[#ffffff] bg-clip-text text-transparent animate-[rainbow_8s_linear_infinite]"
         >
           Why Choose Us
@@ -112,11 +113,11 @@ export function WhyChooseUsSection() {
               key={reason.title}
               variants={cardVariants}
               whileInView={isMobile ? {
-                scale: 1.02,
+                scale: 1.01,
                 transition: {
                   type: "spring",
-                  stiffness: 100,
-                  damping: 15
+                  stiffness: 70,
+                  damping: 20
                 }
               } : undefined}
               viewport={isMobile ? { once: false, amount: 0.6 } : undefined}
@@ -125,8 +126,8 @@ export function WhyChooseUsSection() {
                 y: -5,
                 transition: { 
                   type: "spring",
-                  stiffness: 400,
-                  damping: 10
+                  stiffness: 300,
+                  damping: 15
                 }
               } : undefined}
               className="relative min-h-[14rem] list-none"

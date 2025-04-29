@@ -1,3 +1,4 @@
+
 "use client";
 
 import {
@@ -60,7 +61,11 @@ export function FaqSection() {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ 
+            duration: 0.6,
+            ease: [0.22, 1, 0.36, 1]
+          }}
+          viewport={{ once: true, margin: "-50px" }}
           className="mb-8 md:mb-12 text-center"
         >
           <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4 bg-gradient-to-tr from-[#d877ff] via-[#44d6ff] to-[#ffffff] bg-clip-text text-transparent animate-[rainbow_8s_linear_infinite]">
@@ -75,25 +80,26 @@ export function FaqSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ 
-            duration: 0.7,
+            duration: 0.8,
             type: "spring",
-            stiffness: 100,
-            damping: 15
+            stiffness: 70,
+            damping: 20
           }}
+          viewport={{ once: true, margin: "-50px" }}
           className="rounded-2xl border border-white/10 bg-black/70 backdrop-blur-md p-6 md:p-8 relative z-10"
         >
           <Accordion type="single" collapsible className="w-full">
             {faqItems.map((item, index) => (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{
-                  delay: index * 0.1,
-                  duration: 0.5,
-                  type: "spring",
-                  stiffness: 100
+                  delay: index * 0.08,
+                  duration: 0.6,
+                  ease: [0.22, 1, 0.36, 1]
                 }}
+                viewport={{ once: true, margin: "-30px" }}
               >
                 <AccordionItem
                   value={item.id}
